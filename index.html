@@ -71,9 +71,25 @@
             <a class="nav-link scrollto" href="#section-1">Introduction</a>
             <ul class="nav flex-column mt-2 lvl2">
               <li class="nav-item">
-                <a class="nav-link scrollto" href="#Updating the RoboRio">Updating the RoboRio</a>
+                <a class="nav-link scrollto" href="#item-1-1">Updating the RoboRio</a>
               </li>
             </ul>
+            <a class="nav-link scrollto" href="#section-2">Java Basics</a>
+            <ul class="nav flex-column mt-2 lvl2">
+              <li class="nav-item">
+                <a class="nav-link scrollto" href="#item-2-1">Variables</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link scrollto" href="#item-2-2">Conditionals</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link scrollto" href="#item-2-3">Functions</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link scrollto" href="#item-2-4">Classes</a>
+              </li>
+            </ul>
+            <a class="nav-link scrollto" href="#section-3">Programming Roadmap</a>
           </li>
         </ul>
       </nav>
@@ -85,7 +101,7 @@
         <article class="docs-article" id="section-1">
 
           <header class="docs-header">
-            <h1 class="docs-heading">Introduction <span class="docs-time">Secondary text</span></h1>
+            <h1 class="docs-heading">Introduction</h1>
             <section class="docs-intro">
               <p>Hello! Welcome to the Jacktown Vectors documentation for help with all you wiring and programming
                 needs. This is a work in progress and if you want to add anything be free to do so by going to
@@ -107,14 +123,105 @@
 
           </header>
 
-          <section class="docs-section" id="Updating the RoboRio">
+          <section class="docs-section" id="item-1-1">
             <h2 class="section-heading">Updating the RoboRio</h2>
-
-           
-
           </section>
 
         </article>
+
+
+
+        <article class="docs-article" id="section-2">
+          <header class="docs-header">
+            <h1 class="docs-heading">Java Basics</h1>
+          </header>
+
+          <section class="docs-section" id="item-2-1">
+            <h2 class="section-heading">Variables</h2>
+            <p>Variables are the computer way of storaging information and act as a container for different type of
+              information. In Java you much declare a variable with a specific data type and there two way of declaring
+              variables.
+            </p>
+            <h5>Primitives:</h5>
+            <div class="table-responsive my-4">
+              <table class="table table-bordered">
+                <tbody>
+                  <tr>
+                    <th class="theme-bg-light">
+                      int
+                    </th>
+                    <td>represents integer numbers
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <th class="theme-bg-light">
+                      double
+                    </th>
+                    <td>represents decimals numbers
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <th class="theme-bg-light">
+                      char
+                    </th>
+                    <td>represent a single letter
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <th class="theme-bg-light">
+                      boolean
+                    </th>
+                    <td>true/false values
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <th class="theme-bg-light">
+                      *String
+                    </th>
+                    <td>represents text in code
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p>While these are not the only primitives as there is also byte, short, long, and float these are the only
+              ones used in robotics and you only need to remember the ones listed above. Also String isn't technically a
+              primitive but it uses the same syntax as primitives so I include it.
+            </p>
+            <p>The syntax for declaring variables of primitive type looks like this</p>
+            <pre class="shadow-lg rounded"><code>type</span> variableName = <span class="hljs-built_in">value</span>;</code></pre>
+            <p style="padding-top: 20px;">
+            <h5>Here are some examples:</h5>
+            <pre class="shadow-lg rounded"><code>int myNum = 5;&#10;double myDecimalNum = 5.99;&#10;char myLetter = 'D';&#10;boolean myBool = true;&#10;String myText = "Hello";</code></pre>
+
+          </section>
+
+          <section class="docs-section" id="item-2-2">
+            <h2 class="section-heading">Conditionals</h2>
+          </section>
+
+          <section class="docs-section" id="item-2-3">
+            <h2 class="section-heading">Functions</h2>
+          </section>
+
+          <section class="docs-section" id="item-2-4">
+            <h2 class="section-heading">Classes</h2>
+          </section>
+        </article>
+
+        <article class="docs-article" id="section-3">
+
+
+
+        </article>
+
+
+
+
 
         <footer class="footer">
           <div class="container text-center py-5">

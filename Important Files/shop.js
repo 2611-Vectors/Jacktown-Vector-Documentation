@@ -34,18 +34,8 @@ var hasLogin = getCookie('login');
 if (window.location.origin.indexOf('file') !== -1) {
     document.body.classList.add("access-guaranted");
 } else {
-    if (hasLogin.length == 0) {
-        var sign = prompt("Access password:");
-        if (loginSuccess(sign)) {
-            document.body.classList.add("access-guaranted");
-            setCookie('login', 'true', 1);
-        } else {
-            document.body.remove();
-            setCookie('login', '', 1);
-        }
-    } else {
-        document.body.classList.add("access-guaranted");
-    }
+    document.body.classList.add("access-guaranted");
+
 }
 
 function loginSuccess(b) {
