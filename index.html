@@ -125,6 +125,32 @@
 
           <section class="docs-section" id="item-1-1">
             <h2 class="section-heading">Updating the RoboRio</h2>
+            <p>Begin by pluging in the printer cable into the RoboRio located here</p>
+            <img width="30%" src="./Important Files/roborio photos/roborio-usb-client.svg"
+              class="mb-3 img-fluid img-thumbnail">
+            <p>First open up the roboRIO imaging tool</p>
+            <img src="./Important Files/roborio photos/launching-the-imaging-tool.webp"
+              class="mb-3 img-fluid img-thumbnail" data-action="zoom">
+            <p>This should then pop up a GUI that looks like </p>
+            <img src="./Important Files/roborio photos/roborio-imaging-tool.webp" class="mb-3 img-fluid img-thumbnail"
+              data-action="zoom">
+            <p>Type 2611 our team number in here</p>
+            <img src="./Important Files/roborio photos/roborio-imaging-tool-team-number.png"
+              class="mb-3 img-fluid img-thumbnail" data-action="zoom">
+            <p>Then make sure that Format Target is selected</p>
+            <img src="./Important Files/roborio photos/roborio-imaging-tool-format-target.png"
+              class="mb-3 img-fluid img-thumbnail" data-action="zoom">
+            <p>The selected the most recent image for this photo it FRC_roboRIO_2022_v2.2.zip but for you it might be
+              FRC_roboRIO_2025_v2.2.zip or something like that</p>
+            <img src="./Important Files/roborio photos/roborio-imaging-tool-image.png"
+              class="mb-3 img-fluid img-thumbnail" data-action="zoom">
+            <p>Now before you click the ReFormat makes sure it is plugged in securely and make sure the RoboRIO and the
+              computer are in a spot where they wont be moved. Once you have everything setup up click the ReFormat
+              button then walk away and make sure no one comes near it. These step our to ensure that the installation
+              go successfully as if it gets unplugged you will brick the RoboRio. Also be patient as this could take up
+              to 10 minutes or more</p>
+              <img src="./Important Files/roborio photos/roborio-imaging-tool-format-button.png"
+              class="mb-3 img-fluid img-thumbnail" data-action="zoom">
           </section>
 
         </article>
@@ -134,8 +160,20 @@
         <article class="docs-article" id="section-2">
           <header class="docs-header">
             <h1 class="docs-heading">Java Basics</h1>
+            <p>This section will go over the basic of java syntax and the stuff you can do with it at a surface level.
+              This will no be going into to much detail of robot specific stuff like subsystem, commands and the
+              different
+              api we used but is instead meant to help you get a better intuitive grasp of the language. There is also
+              some stuff left out for the sake of simplicity. But I encourage you to do research on lamdas, method
+              reference, interfaces, and OOP to name a few</p>
+            <h5>This section will go over:</h5>
+            <ol>
+              <li>Variables</li>
+              <li>Conditionals</li>
+              <li>Functions</li>
+              <li>Classes</li>
+            </ol>
           </header>
-
           <section class="docs-section" id="item-2-1">
             <h2 class="section-heading">Variables</h2>
             <p>Variables are the computer way of storaging information and act as a container for different type of
@@ -193,15 +231,157 @@
               primitive but it uses the same syntax as primitives so I include it.
             </p>
             <p>The syntax for declaring variables of primitive type looks like this</p>
-            <pre class="shadow-lg rounded"><code>type</span> variableName = <span class="hljs-built_in">value</span>;</code></pre>
+            <pre
+              class="shadow-lg rounded"><code>type variableName = <span class="hljs-built_in">value</span>;</code></pre>
             <p style="padding-top: 20px;">
             <h5>Here are some examples:</h5>
-            <pre class="shadow-lg rounded"><code>int myNum = 5;&#10;double myDecimalNum = 5.99;&#10;char myLetter = 'D';&#10;boolean myBool = true;&#10;String myText = "Hello";</code></pre>
+            <pre
+              class="shadow-lg rounded"><code>int myNum = 5;&#10;double myDecimalNum = 5.99;&#10;char myLetter = 'D';&#10;boolean myBool = true;&#10;String myText = "Hello";</code></pre>
+            <p style="padding-top: 20px;"></p>
+            <p>Next type of variable is called objects/classes and they need to be initialized and you do this by using
+              the key word "new"</p>
+            <pre
+              class="shadow-lg rounded"><code>MyClass myObject = new MyClass();&#10;CANSparkMax motor = new CANSparkMax(0, MotorType.kBrushless);&#10;DriveTrain drivetrain = new DriveTrain();&#10;Command m_simpleAuto = new SimpleAuton();&#10;UsbCamera camera = <span class="hljs-title class_">CameraServer</span>.startAutomaticCapture("ShooterView",0);</code></pre>
+            <p style="padding-top: 20px;"></p>
+            <p>Now for the last two you will notice something a little different first the type and the class don't
+              match this is due to a concept called inheritance which will be covered more under <a
+                href="#item-2-4">classes</a>. For the next one you notice there is no key word "new" and you can violate
+              this rule when calling a <a href="#item-2-3">function</a> that return the the corresponding datatype</p>
 
+
+
+            <p style="padding-top: 20px;"></p>
+            <h3>Using Variables</h3>
+            <p>Now just defining and declaring variables wont actually do anything. So we have to use them now for
+              objects and classes it is more complicated and will be covered more in the <a href="#item-2-4">classes</a>
+              section. For primitives though it is more simple for will start off with numbers.
+            </p>
+            <p>Now just like in Math there are the four main operators addition(+), subtraction(-), multiplication(*),
+              and division(/). There is also a fifth one called the modulus(%) which will return the division remainder
+            </p>
+            <h5>Examples</h5>
+            <pre
+              class="shadow-lg rounded"><code>int x = 5 * 2; // Equals 10&#10;double y = 10 / 3; // Equals 1.3333&#10;double z = 1.3 + 2.6; // Equals 3.9&#10;int w = 3 - 10; // Equals -7&#10;int remainder = 10 % 3; //Equals 1 since 10/3 has a remainder of 1</code></pre>
+            <p style="padding-top: 20px;"></p>
+            <div class="callout-block callout-block-info">
+              <div class="content">
+                <h4 class="callout-title">Note</h4>
+                Unlike in math where "=" mean that the left side is equal to the right this is not true in programming
+                it mean assigment which mean that that the left side is set to the right side
+              </div>
+            </div>
+            <p>Now with this you can already to some complex things but for some task like incrementing it can be a
+              little tedious for example if you want to increase x by 1 you would have to write</p>
+            <pre class="shadow-lg rounded"><code>x = x + 1;</code></pre>
+            <p style="padding-top: 20px;"></p>
+            <p>So to make it easier there is what is called assigment operators and it just a simplification of the code
+              above.</p>
+            <pre class="shadow-lg rounded"><code>x += 1;</code></pre>
+            <p style="padding-top: 20px;"></p>
+
+            <div class="table-responsive my-4">
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th scope="col">Operator</th>
+                    <th scope="col">Example</th>
+                    <th scope="col">Same As</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>+=</td>
+                    <td>x += 5</td>
+                    <td>x = x + 5</td>
+                  </tr>
+                  <tr>
+                    <td>++</td>
+                    <td>x++</td>
+                    <td>x = x + 1</td>
+                  </tr>
+                  <tr>
+                    <td>-=</td>
+                    <td>x -= 3</td>
+                    <td>x = x - 3</td>
+                  </tr>
+                  <tr>
+                    <td>--</td>
+                    <td>x--</td>
+                    <td>x = x - 1</td>
+                  </tr>
+                  <tr>
+                    <td>*=</td>
+                    <td>x *= 4</td>
+                    <td>x = x * 4</td>
+                  </tr>
+                  <tr>
+                    <td>/=</td>
+                    <td>x /= 2</td>
+                    <td>x = x / 2</td>
+                  </tr>
+                  <tr>
+                    <td>%=</td>
+                    <td>x %= 3</td>
+                    <td>x = x % 3</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p>Congrats on making it to the end of the section hopefully I didn't lose you somewhere along the way. If
+              your confused about anything feel free to reach out and with that were on to conditional </p>
           </section>
 
           <section class="docs-section" id="item-2-2">
             <h2 class="section-heading">Conditionals</h2>
+            <p>A conditional is any code that require a condition to run. A condition is just a boolean which if you
+              remember from the <a href="#item-2-1">variables</a> sections is a true or false value. There are 7 total
+              conditionals in java that you need to remember</p>
+            <ul>
+              <li>
+                Use <code>if</code> to specify a block of code to be executed, if a specified condition is true
+              </li>
+              <li>
+                Use <code>else</code> to specify a block of code to be executed, if the same condition is false
+              </li>
+              <li>
+                Use <code>else if</code> to specify a new condition to test, if the first condition is false
+              </li>
+              <li>
+                Use <code>else if</code> to specify a new condition to test, if the first condition is false
+              </li>
+              <li>
+                Use <code>switch</code> to specify many alternative blocks of code to be executed
+              </li>
+              <li>
+                Use <code>while</code> loop if you want a block of code to run as long as a specified condition is true
+              </li>
+              <li>
+                Use <code>do {} while</code> loop if you want to execute the code block once, before checking if the
+                condition is true
+              </li>
+              <li>
+                Use <code>for</code> loop when you know exactly how many times you want to loop through a block of code
+              </li>
+            </ul>
+            <p>While this may seem like a lot and it is but each one by itself isn't that hard aside maybe the
+              <code>for</code> loop and we'll being going over them one at a time
+            </p>
+            <div class="callout-block callout-block-info">
+              <div class="content">
+                <h4 class="callout-title">Note</h4>
+                A block of code is code that is contained with in curly brackets so this
+                <span style="white-space: pre-line">
+                  {
+                  &emsp;my code...
+                  }
+                </span>
+                is a block of code
+              </div>
+            </div>
+            <h4><code>if</code> statement:</h4>
+            <p>As mention previous an if statement is when you only one some code to one once if and only if some
+              condition/boolean is true.</p>
+
           </section>
 
           <section class="docs-section" id="item-2-3">
