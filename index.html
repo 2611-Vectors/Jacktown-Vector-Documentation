@@ -137,7 +137,8 @@
 
           <section class="docs-section" id="item-1-1">
             <h2 class="section-heading">Updating the RoboRio</h2>
-            <p>Begin by pluging in the printer cable into the RoboRio located here</p>
+            <p>Begin by pluging in the printer cable into the RoboRio located here and plug the usb end into the
+              computer</p>
             <img width="30%" src="./Important Files/roborio photos/roborio-usb-client.svg"
               class="mb-3 img-fluid img-thumbnail">
             <p>Then open up the roboRIO imaging tool</p>
@@ -157,8 +158,8 @@
             <img src="./Important Files/roborio photos/roborio-imaging-tool-image.png"
               class="mb-3 img-fluid img-thumbnail" data-action="zoom">
             <p>Now before you click the ReFormat makes sure it is plugged in securely and make sure the RoboRIO and the
-              computer are in a spot where they wont be moved. Once you have everything setup up click the ReFormat
-              button then walk away and make sure no one comes near it. These step our to ensure that the installation
+              computer are in a spot where they wont be moved. Once you have everything setup click the ReFormat
+              button then walk away and make sure no one comes near it. These steps our to ensure that the installation
               go successfully as if it gets unplugged you will brick the RoboRio. Also be patient as this could take up
               to 10 minutes or more</p>
             <img src="./Important Files/roborio photos/roborio-imaging-tool-format-button.png"
@@ -175,13 +176,13 @@
             <h2 class="section-heading">How to Create a Project</h2>
             <p>First open up WPILib VS Code there are many way of doing this you can search for the app or by going to
               the home screen and clicking on it make sure you don't click on the WPILib Documentation page</p>
-            <p>Once you have the vs code it should look something like this</p>
+            <p>Once you have vs code open it should look something like this</p>
             <img src="./Important Files/creating project/vs-photo.png" class="mb-3 img-fluid img-thumbnail"
               data-action="zoom">
             <p>Now go ahead and click on the W logo in the top right part of your screen</p>
             <img src="./Important Files/creating project/vs-photo-logo.png" class="mb-3 img-fluid img-thumbnail"
               data-action="zoom">
-            <p>If dont correctly you should get a screen that looks like this</p>
+            <p>If done correctly you should get a screen that looks like this</p>
             <img src="./Important Files/creating project/vs-wpi-console.png" class="mb-3 img-fluid img-thumbnail"
               data-action="zoom">
             <p>Now search or just click on WPILib: Create a new project</p>
@@ -190,7 +191,26 @@
             <p>It should then pop up a menu that looks like this</p>
             <img src="./Important Files/creating project/create-project-menu.png" class="mb-3 img-fluid img-thumbnail"
               data-action="zoom">
-            <p></p>
+            <p>Now click on the Select a project type then hit the template option in the pop up</p>
+            <img src="./Important Files/creating project/selecting-template.png" class="mb-3 img-fluid img-thumbnail"
+              data-action="zoom">
+            <p>Then click on the java option</p>
+            <img src="./Important Files/creating project/java-option.png" class="mb-3 img-fluid img-thumbnail"
+              data-action="zoom">
+            <p>Now click on the Command Robot option</p>
+            <img src="./Important Files/creating project/command-robot-option.png" class="mb-3 img-fluid img-thumbnail"
+              data-action="zoom">
+            <p>Now hit the Select a new project folder and pick what folder you want you project to generate in</p>
+            <img src="./Important Files/creating project/selecting-project-folder.png"
+              class="mb-3 img-fluid img-thumbnail" data-action="zoom">
+            <p>Now type a name you want your project to be called</p>
+            <img src="./Important Files/creating project/project-name.png" class="mb-3 img-fluid img-thumbnail"
+              data-action="zoom">
+            <p>Now type 2611 in the team number options then click Generate project and hit either Yes(Current Window)
+              or Yes (New Window) and then your done</p>
+            <img src="./Important Files/creating project/type-team-number.png" class="mb-3 img-fluid img-thumbnail"
+              data-action="zoom">
+            <p>Then wait for it to finish building and then your done and you ready to start programming</p>
           </section>
           <section class="docs-section" id="item-1-4">
             <h2 class="section-heading">How to Install Libaries</h2>
@@ -207,10 +227,12 @@
             <h1 class="docs-heading">Java Basics</h1>
             <p>This section will go over the basic of java syntax and the stuff you can do with it at a surface level.
               This will no be going into to much detail of robot specific stuff like subsystem, commands and the
-              different
-              api we used but is instead meant to help you get a better intuitive grasp of the language. There is also
-              some stuff left out for the sake of simplicity. But I encourage you to do research on lamdas, method
-              reference, interfaces, and OOP to name a few</p>
+              different api we used but is instead meant to help you get a better intuitive grasp of the language. There
+              is also some stuff left out for the sake of simplicity. But I encourage you to do research on lamdas,
+              method
+              reference, interfaces, and OOP to name a few. I also took heavy inspiration from <a
+                href="https://www.w3schools.com/java/default.asp">w3schools</a> so I encourage you after reading this to
+              go over there to learn more</p>
             <h5>This section will go over:</h5>
             <ol>
               <li>Variables</li>
@@ -221,8 +243,9 @@
           </header>
           <section class="docs-section" id="item-2-1">
             <h2 class="section-heading">Variables</h2>
-            <p>Variables are the computer way of storaging information and act as a container for different type of
-              information. In Java you much declare a variable with a specific data type and there two way of declaring
+            <p>Variables are the computers way of storaging information and act as a container for different types of
+              information. In Java you much declare a variable with a specific data type and there two way of asigning
+              values
               variables.
             </p>
             <h5>Primitives:</h5>
@@ -275,7 +298,7 @@
               ones used in robotics and you only need to remember the ones listed above. Also String isn't technically a
               primitive but it uses the same syntax as primitives so I include it.
             </p>
-            <p>The syntax for declaring variables of primitive type looks like this</p>
+            <p>The syntax for asigning variables of primitive types looks like this</p>
             <pre
               class="shadow-lg rounded"><code>type variableName = <span class="hljs-built_in">value</span>;</code></pre>
             <p style="padding-top: 20px;">
@@ -288,18 +311,27 @@
             <pre
               class="shadow-lg rounded"><code>MyClass myObject = new MyClass();&#10;CANSparkMax motor = new CANSparkMax(0, MotorType.kBrushless);&#10;DriveTrain drivetrain = new DriveTrain();&#10;Command m_simpleAuto = new SimpleAuton();&#10;UsbCamera camera = <span class="hljs-title class_">CameraServer</span>.startAutomaticCapture("ShooterView",0);</code></pre>
             <p style="padding-top: 20px;"></p>
-            <p>Now for the last two you will notice something a little different first the type and the class don't
+            <p>Now for the last two you will notice something a little different, the first ones type and class don't
               match this is due to a concept called inheritance which will be covered more under <a
-                href="#item-2-4">classes</a>. For the next one you notice there is no key word "new" and you can violate
+                href="#item-2-4">classes</a>. For the next one you notice there is no key word <code>new</code> and you
+              can violate
               this rule when calling a <a href="#item-2-3">function</a> that return the the corresponding datatype</p>
 
 
+            <div class="callout-block callout-block-info">
+              <div class="content">
+                <h4 class="callout-title">Note</h4>
+                If all you want to do is declare a variable but not assign it any values you can do so by just doing
+                <pre class="shadow-lg rounded"><code>type variableName;</code></pre>
+              </div>
+            </div>
 
             <p style="padding-top: 20px;"></p>
             <h3>Using Variables</h3>
-            <p>Now just defining and declaring variables wont actually do anything. So we have to use them now for
-              objects and classes it is more complicated and will be covered more in the <a href="#item-2-4">classes</a>
-              section. For primitives though it is more simple for will start off with numbers.
+            <p>Now just defining and declaring variables wont actually do anything. There are two ways of using
+              variables for the two types for objects and classes it is more complicated and will be covered more in the
+              <a href="#item-2-4">classes</a> section. For primitives though ts simple and we'll start with
+              numbers.
             </p>
             <p>Now just like in Math there are the four main operators addition(+), subtraction(-), multiplication(*),
               and division(/). There is also a fifth one called the modulus(%) which will return the division remainder
@@ -494,6 +526,9 @@
             <pre
               class="shadow-lg rounded"><code>int x = 20;&#10;int y = 18;&#10;if (x > y) {&#10;&emsp;System.out.println("x is greater than y");&#10;}</code></pre>
             <p style="padding-top: 20px;"></p>
+
+
+
             <h4><code>else</code> statement:</h4>
             <p>This is is used when you have an either or scenario where you want one block of code to one when
               something is true the other when it false. Here is the syntax</p>
@@ -506,20 +541,548 @@
               with an
               <code>else</code> you cant just have an <code>else</code> by itself
             </p>
-            <p>Good example would be when pressing a button so let say I have two variabel one is buttonA and the other
+            <p>Good example would be when pressing a button so let say I have two variables one is buttonA and the other
               is wheelRPM and lets say when I press the button it set the wheelRPM to 3000 and then when I release it
               sets it to zero</p>
             <pre
               class="shadow-lg rounded"><code>if (buttonA) {&#10;&emsp;wheelRPM = 3000&#10;} else {&#10;&emsp;wheelRPM&#10;}</code></pre>
             <p style="padding-top: 20px;"></p>
+
+
+
+            <h4><code>if else</code> statement:</h4>
+            <p>This combines what we did in the previous two section and allows you to change multiple if statement
+              check each one one after another and if one of them is true is top the change. Here is the syntax</p>
+            <pre
+              class="shadow-lg rounded"><code>if (condition1) {&#10;&emsp;// block of code to be executed if condition1 is true&#10;} else if (condition2) {&#10;&emsp;// block of code to be executed if the condition1 is false and condition2 is true&#10;} else {&#10;&emsp;// block of code to be executed if the condition1 is false and condition2 is false&#10;}</code></pre>
+            <p style="padding-top: 20px;"></p>
+
+            <p>For these example I will take some code we used for our arm set points in 2023</p>
+            <pre
+              class="shadow-lg rounded"><code>if (Controller1.getStartButton()) {&#10;&emsp;// home pos&#10;&emsp;armSetPoint = 0.87&#10;} else if (Controller1.getYButton()) {&#10;&emsp;// high pos&#10;&emsp;armSetPoint = 0.66&#10;} else if (Controller1.getBButton()) {&#10;&emsp;// medium  pos&#10;&emsp;armSetPoint = 0.70&#10;}  else if (Controller1.getAButton()) {&#10;&emsp;// low pos&#10;&emsp;armSetPoint = 0.80&#10;} else if (Controller1.getXButton()) {&#10;&emsp;// loading pos&#10;&emsp;armSetPoint = 0.71&#10;}</code></pre>
+            <p style="padding-top: 20px;"></p>
+
+
+            <h4><code>switch</code> statement:</h4>
+            <p>Now this one isn't used as often in robotics as we never used a switch stament in any of our code and it
+              kinda hard to explain so im just gonna skip straight to an example.</p>
+            <pre class="shadow-lg rounded"><code>int day = 4;
+switch (day) {
+  case 1:
+    System.out.println("Monday");
+    break;
+  case 2:
+    System.out.println("Tuesday");
+    break;
+  case 3:
+    System.out.println("Wednesday");
+    break;
+  case 4:
+    System.out.println("Thursday");
+    break;
+  case 5:
+    System.out.println("Friday");
+    break;
+  case 6:
+    System.out.println("Saturday");
+    break;
+  case 7:
+    System.out.println("Sunday");
+    break;
+}
+// Outputs "Thursday" (day 4)
+                </code></pre>
+            <p style="padding-top: 20px;"></p>
+
+
+
+            <h4><code>while</code> loop</h4>
+            <p>Up until now there was no way of running the same block of code as the only way to do this would be just
+              to copy and paste code a bunch of times. But this solution is solved using a while loop and it will run
+              the same block of code until the some condition is false. Here the syntax</p>
+            <pre class="shadow-lg rounded"><code>while (condition) {
+  // code block to be executed
+}</code></pre>
+            <p style="padding-top: 20px;"></p>
+            <p>Here an example</p>
+            <pre class="shadow-lg rounded"><code>int i = 0;
+while (i &lt; 5) {
+  System.out.println(i);
+  i++;
+}</code></pre>
+            <p style="padding-top: 20px;"></p>
+            <p>Now we dont really every want to use while loop because the robot already has a regularly schedule loop
+              so if you add you own loop it can slow the code down and risk getting stuck in a infinite loop which is
+              bad</p>
+
+            <h4><code>do while</code> loop</h4>
+            <p>Gonna be honest this is kinda useless but it still good to remember so I'll just include the syntax</p>
+            <pre class="shadow-lg rounded"><code>do {
+  // code block to be executed
+}
+while (condition);</code></pre>
+            <p style="padding-top: 20px;"></p>
+
+
+
+            <h4><code>for</code> loop</h4>
+            <p>Now this solves all the issues of the <code>while</code> loop as for loop only loop through code for a
+              certain amount of time and it great for looping through arrays (will add section for later) and for
+              running a code for only a set amount of times. Here the syntax</p>
+            <pre class="shadow-lg rounded"><code>for (statement 1; statement 2; statement 3) {
+  // code block to be executed
+}</code></pre>
+
+            <p style="padding-top: 20px;"></p>
+            <p><strong>Statement 1</strong> is executed (one time) before the execution of the code block.</p>
+            <p><strong>Statement 2</strong> defines the condition for executing the code block.</p>
+            <p><strong>Statement 3</strong> is executed (every time) after the code block has been executed.</p>
+
+            <p>Here an Example that loops through a code 5 times</p>
+            <pre class="shadow-lg rounded"><code>for (int i = 0; i &lt; 5; i++) {
+  System.out.println(i);
+}</code></pre>
+            <p style="padding-top: 20px;"></p>
+            <p>I am that the loop section of conditionals was a little short and was due to the fact that we don't use
+              loops that often in robotics but they are usefull when programming other things so I encourage you to
+              learn more if your interested.</p>
+            <p>Now I know this unit was a lot with the amount of material that was covered and while the next one won't
+              be as longs it will be more complicated and the units will get more difficult so I encourage you to re
+              read these two units and get a good understand before moving ahead </p>
           </section>
 
           <section class="docs-section" id="item-2-3">
             <h2 class="section-heading">Functions</h2>
+            <p>Functions are useful in programming as it allows you to bundle the code you wrote into one neat little
+              package. You use function by calling them and pass values know as parameters if neccessary.</p>
+            <div class="callout-block callout-block-info">
+              <div class="content">
+                <h4 class="callout-title">Note</h4>
+                I refer to them as functions but you will also see them be called methods and they mean the same things
+                so don't get confused if you see them used interchangeably.
+              </div>
+            </div>
+            <p>Now the syntax for function is relatively simple and is the same for all of them with no exceptions like
+              in some of the other units</p>
+            <pre class="shadow-lg rounded"><code>returnType name(parameter1, parameter2,... parmaterN) {
+  // code to be executed
+}</code></pre>
+            <p style="padding-top: 20px;"></p>
+            <p>Just cause there is not much there doesnt mean it isn't complex so I will breaking down each
+              part one at a time</p>
+
+
+            <h4>Return Type</h4>
+            <p>Now just as the name suggest its the data type that the function returns and as learned in the <a
+                href="#item-2-1">variables</a> tabs this include all the primitives and the different objects. But for
+              return type there is one extra type and that is if you don't want to return anything and we use the
+              word <code>void</code></p>
+            <p>Here and example of how you would use the <code>void</code> return type</p>
+            <pre class="shadow-lg rounded"><code>void myMethod() {
+  // code to be executed
+}</code></pre>
+            <p style="padding-top: 20px;"></p>
+            <p>When you want to return a values use the keyword <code>return</code> and you must always return that
+              type or it will throw and error. Here is an example of how NOT to write a return code</p>
+            <pre class="shadow-lg rounded"><code>int getX() {
+  if (x > 0) {
+    return x;
+  }
+}</code></pre>
+            <p style="padding-top: 20px;"></p>
+
+            <p>The issue with this is that if x isn't greater than zero than you could end up returning nothing which
+              would
+              mean its a return type of void but you told the computer it was meant to return a int so it will throw an
+              error. Here would be a corrected version </p>
+            <pre class="shadow-lg rounded"><code>int getX() {
+  if (x > 0) {
+    return x;
+  } else {
+    return 0
+  }
+}</code></pre>
+            <p style="padding-top: 20px;"></p>
+            <h4>Function Parameters</h4>
+            <p>For parameters you can have 0 or 100 parameters. They go inside the parentheses and you need to define
+              what type of data is getting passed in and then give it a names so you can use it inside the function.</p>
+            <p>For this example lets say we want it to return your name and the variables you would need to pass in is
+              your
+              first and last name. Also to create a parameter you just type its name then a comma if you want to include
+              more </p>
+            <pre class="shadow-lg rounded"><code>String name = getName("Nathan", "Blondke");
+String getName(String fname, String lname) {
+  // You can add strings btw by using the + so "ab" + "ba" = "abba"
+  return fname + " " + lname;
+}</code></pre>
+            <p style="padding-top: 20px;"></p>
+
+            <p>Also notice that the function was created after it was used and this is perfectly fine and is usually
+              preferred.</p>
+            <p>A common scenario where we create functions when we want a function to set power to a motor</p>
+            <pre class="shadow-lg rounded"><code>CANSparkMax climbLeftMotor = new CANSparkMax(62, MotorType.kBrushless);
+public void setLeftClimb(double power){
+  climbLeftMotor.set(power);
+}</code></pre>
+            <p style="padding-top: 20px;"></p>
+            <p>You can also use function to help simplify math equations into one word so I will pick a simple equation
+              of just x + y
+              = z which is just adding</p>
+            <pre class="shadow-lg rounded"><code>double add(double x, double y) {
+  return x + y;
+}</code></pre>
+            <p style="padding-top: 20px;"></p>
+            <p>This was a relatively short unit and I will probably add more stuff later but functions are hard to
+              explaing without just giving example so if you have any suggest feel free to do so</p>
           </section>
 
           <section class="docs-section" id="item-2-4">
             <h2 class="section-heading">Classes</h2>
+            <p>Now we can final start writing actual programs as up until this point the code I demostrated so far could
+              not be run by themselves as java is a language built around and design with classes in mind.</p>
+            <p>First things to note is when creating a file you need to make sure that your file name and you class name
+              our the exact same this includes capitals. There are also many type of way of making a class but I will
+              first just give you the syntax for just a empty class.</p>
+            <pre class="shadow-lg rounded"><code>public class name {
+  // code to be executed
+}</code></pre>
+            <p style="padding-top: 20px;"></p>
+            <div class="callout-block callout-block-info">
+              <div class="content">
+                <h4 class="callout-title">Note</h4>
+                <p>Now technically you dont need the word <code>public</code> to create a class but there is never a
+                  time in robotics you wouldn't put <code>public</code> in the front also these are called modifiers and
+                  will be mention more under scope further down in this unit</p>
+              </div>
+            </div>
+            <p>Now classes can only store three thing attributes (just variables), methods (just functions), and a
+              constructor (optional but usually wanted). For the rest of the example I will make it so you can run the
+              example code and follow along. So first
+              open up WPILib VS Code and create a file called Point.java To run a java file you can click this button in
+              the top right</p>
+            <img src="./Important Files/run-code-button.png" class="mb-3 img-fluid img-thumbnail" data-action="zoom">
+            <pre class="shadow-lg rounded"><code>public class Point {
+  int x = 5;
+  int y = 3;
+}</code></pre>
+            <p style="padding-top: 20px;"></p>
+            <p>If you try running the code nothing is going to happen that is because class can't do anything by
+              themselves so you have to create a object using that class. You can go to the <a
+                href="#item-2-1">variables</a> unit if you forgot how to do that. Now I gonna be using the main function
+              which looks like</p>
+            <pre class="shadow-lg rounded"><code>public static void main(String[] args) {
+  // Code ran by compiler
+}</code></pre>
+            <p style="padding-top: 20px;"></p>
+            <p>Don't ever you use a main function when programming on the robot but for this test its fine. Also even
+              though I gonna put main inside different classes its not actually part of the class and just imagine this
+              function as
+              code outside everything.</p>
+            <pre class="shadow-lg rounded"><code>public class Point {
+  int x = 5;
+  int y = 3;
+  public static void main(String[] args) {
+    Point myPoint = new Point();
+  }
+}</code></pre>
+            <p style="padding-top: 20px;"></p>
+            <p>Now that we finally created a object using a class we made we know need to learn how to use stuff in a
+              class. You do this my using what called dot notation and can access stuff inside a class by doing</p>
+            <pre class="shadow-lg rounded"><code>name.stuffToAccess</code></pre>
+            <p style="padding-top: 20px;"></p>
+            <p>So if we wanted to print our x and y values to the terminal we would write</p>
+            <pre class="shadow-lg rounded"><code>public class Point {
+  int x = 5;
+  int y = 3;
+  public static void main(String[] args) {
+    Point myPoint = new Point();
+    System.out.println(myPoint.x);
+    System.out.println(myPoint.y);
+
+    //Just like variables you can also change values of attributes
+    myPoint.x = 1;
+    myPoint.y = -5;
+
+    System.out.println(myPoint.x);
+    System.out.println(myPoint.y);
+  }
+}</code></pre>
+            <p style="padding-top: 20px;"></p>
+            <p>Normally acces variables like this inside a object is generally bad practice so instead you might want to
+              create a method or function inside the class to get certain values.</p>
+            <pre class="shadow-lg rounded"><code>public class Point {
+  int x = 5;
+  int y = 3;
+  public int getX() {
+    return x;
+  }
+  public int getY() {
+    return y;
+  }
+  public static void main(String[] args) {
+    Point myPoint = new Point();
+    System.out.println(myPoint.getX());
+    System.out.println(myPoint.getY());
+  }
+}</code></pre>
+            <p style="padding-top: 20px;"></p>
+
+            <p>Now we lost the ability to change our variables so we would need to create two more methods for that.</p>
+            <pre class="shadow-lg rounded"><code>public class Point {
+  int x = 5;
+  int y = 3;
+  public int getX() {
+    return x;
+  }
+  public int getY() {
+    return y;
+  }
+  public int setX(int x) {
+    this.x = x;
+  }
+  public int setY(int y) {
+    this.y = y;
+  }
+  public static void main(String[] args) {
+    Point myPoint = new Point();
+    System.out.println(myPoint.getX());
+    System.out.println(myPoint.getY());
+
+    myPoint.setX(1);
+    myPoint.setY(-5);
+
+    System.out.println(myPoint.x);
+    System.out.println(myPoint.y);
+  }
+}</code></pre>
+            <p style="padding-top: 20px;"></p>
+            <div class="callout-block callout-block-info">
+              <div class="content">
+                <h4 class="callout-title">Note</h4>
+                <p>The <code>this</code> keyword is used when refering to variable of the same name but have different
+                  scope (will go over later). The <code>this</code> keyword only works on
+                  attributes.
+                </p>
+              </div>
+            </div>
+            <p>Now we just created what is called getters and setters and they come up a lot in java. There is still one
+              limiting thing about our point class and that is that our x and y have to start at 5 and 3. Though similar
+              to how function have parameters, classes also have parameters and they can be used to customize objects
+              even if they have the same class. This is done by creating what called a constructor and this has to have
+              the same name as the class and is called when you first initialize the object</p>
+            <pre class="shadow-lg rounded"><code>public class Point {
+  int x;
+  int y;
+  public Point(int x, int y) {
+    this.x = x;
+    this.y = y;
+  }
+  public int getX() {
+    return x;
+  }
+  public int getY() {
+    return y;
+  }
+  public static void main(String[] args) {
+    Point myPoint = new Point(5, 3);
+    System.out.println(myPoint.getX());
+    System.out.println(myPoint.getY());
+  }
+}</code></pre>
+            <p style="padding-top: 20px;"></p>
+            <p>Couple things of notes is that for constructor you dont include a return type. Also if you want to create
+              a Point object you must specify a x and a y. If you still wanted to have a default x and y you could do
+              that my creating a second constructor that doesn't require any parameters and just set it to what ever
+              values you want. This is a concept called Method Overloading and I leave it as an exercise for the reader
+              to learn more about that.</p>
+
+
+            <h3>Scope</h3>
+            <p>Before I continue and talk about Inheritance and static methods and attributes I need to take a small
+              detour to talk about scope and the different modifiers you can use. In Java, variables are only accessible
+              inside the region they are created. This is called <strong>scope</strong>. This is the text book
+              definition and a more long winded explaination is. Variables declared inside blocks of code are only
+              accessible by the code between the curly braces, which follows the line in which the variable was
+              declared</p>
+            <h5>Example:</h5>
+            <pre class="shadow-lg rounded"><code>public class Main {
+  public static void main(String[] args) {
+    
+    // Code here CANNOT use x or y
+    int y = 50;
+    { // This is a block
+
+      // Code here CANNOT use x but CAN use y
+
+      int x = 100;
+
+      // Code here CAN use x and y
+      System.out.println(x);
+
+    } // The block ends here
+
+  // Code here CANNOT use x but CAN use y
+
+  }
+}</code></pre>
+            <p style="padding-top: 20px;"></p>
+            <div class="callout-block callout-block-info">
+              <div class="content">
+                <h4 class="callout-title">Note</h4>
+                <p>
+                  Noramlly a block of code isn't just by itself and is instead belong to an if, while or for statement.
+                  Also variables defined inside the paramateters are also with in the scope of the block of code
+                </p>
+              </div>
+            </div>
+
+
+            <h3>Modifiers</h3>
+            <p>Modifiers are used set the access level for classes, attributes, methods and constructors. There are two
+              types one is Access Modifiers which controls the access level and Non-Access Modifiers which do not
+              control
+              access level, but provides other functionality. They go in the
+              very front and you can sometimes chain them together like here</p>
+            <pre class="shadow-lg rounded"><code> public static final double NathanSpeed = 2.0;</code></pre>
+            <p style="padding-top: 20px;"></p>
+
+
+            <h3>Access Modifiers</h3>
+            <p>For classes, you can use either use public or leave it blank:</p>
+            <div class="table-responsive my-4">
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th scope="col">Modifier</th>
+                    <th scope="col">Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>public</td>
+                    <td>This allows the class to be accessible by other classes in different files</td>
+                  </tr>
+                  <tr>
+                    <td>nothing</td>
+                    <td>The class is only accessible by classes in the same package. Dont ever do this.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p>For attributes, methods and constructors, you can use the one of the following:</p>
+            <div class="table-responsive my-4">
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th scope="col">Modifier</th>
+                    <th scope="col">Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>public</td>
+                    <td>The code is accessible by other classes in different files</td>
+                  </tr>
+                  <tr>
+                    <td>private</td>
+                    <td>The code is only accessible within the declared class and no other files</td>
+                  </tr>
+                  <tr>
+                    <td>nothing</td>
+                    <td>The code is only accessible by classes in the same package. Dont ever do this.</td>
+                  </tr>
+                  <tr>
+                    <td>protected</td>
+                    <td>The code is accessible in the same package and subclasses. You will learn more about
+                      subclasses and superclasses in the Inheritance chapter. (never used this before you dont have to
+                      remember this)</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h3>Non-Access Modifiers</h3>
+            <p>For classes, you can use either final or abstract:</p>
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th scope="col">Modifier</th>
+                  <th scope="col">Description</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>final</td>
+                  <td>The class cannot be inherited by other classes (will learn about later)</td>
+                </tr>
+                <tr>
+                  <td>abstract</td>
+                  <td>The class cannot be used to create objects and must be inherited to use</td>
+                </tr>
+              </tbody>
+            </table>
+            <p>For attributes and methods, you can use the one of the following:</p>
+            <div class="table-responsive my-4">
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th scope="col">Modifier</th>
+                    <th scope="col">Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>final</td>
+                    <td>Attributes and methods cannot be overridden/modified</td>
+                  </tr>
+                  <tr>
+                    <td>static</td>
+                    <td>Attributes and methods belongs to the class, rather than an object</td>
+                  </tr>
+                </tbody>
+              </table>
+              <div class="callout-block callout-block-info">
+                <div class="content">
+                  <h4 class="callout-title">Note</h4>
+                  <p>There is also abstract, transient, synchronized, and volatile but we dont use these so I didn't
+                    feel the need to include them
+                  </p>
+                </div>
+              </div>
+            </div>
+            <h2>Java Inheritance (Subclass and Superclass)</h2>
+            <p>We have finally arrived to the last unit of Java basic and this is very important as we inherited a class
+              often from WPILib lwhen creating Commands and Subsystems. In Java you can inherit attributes and methods
+              from one class to another. There are two forms of classes when inheriting</p>
+            <ul>
+              <li><strong>subclass</strong> (child) - the class that inherits from another class</li>
+              <li><strong>superclass</strong> (parent) - the class being inherited from</li>
+            </ul>
+            <p>To inherit from a class, use the <code>extends</code> keyword</p>
+            <h4>Example:</h4>
+            <pre class="shadow-lg rounded"><code>class Vehicle {
+  protected String brand = "Ford";        // Vehicle attribute
+  public void honk() {                    // Vehicle method
+    System.out.println("Tuut, tuut!");
+  }
+}
+
+class Car extends Vehicle {
+  private String modelName = "Mustang";    // Car attribute
+  public static void main(String[] args) {
+
+    // Create a myCar object
+    Car myCar = new Car();
+
+    // Call the honk() method (from the Vehicle class) on the myCar object
+    myCar.honk();
+
+    // Display the value of the brand attribute (from the Vehicle class) and the value of the modelName from the Car class
+    System.out.println(myCar.brand + " " + myCar.modelName);
+  }
+}</code></pre>
+            <p style="padding-top: 20px;"></p>
+            <p>Congrats you reach the end of the section and once again if you notice any grammar errors or feel like
+              there stuff that could be added to make things more clear don't be afraid to reach and tell me. </p>
           </section>
         </article>
 
@@ -560,21 +1123,17 @@
           <div class="container">
             <div class="row justify-content-center">
               <div class="col-12">
-                <h6 class="mt-3"> <span class="p-2"> Version 1.0.0</span> - 29/06/2021</h6>
+                <h6 class="mt-3"> <span class="p-2"> Version 1.1.0</span> - 17/12/2024</h6>
                 <ul class="mt-3 mb-5">
-                  <li class="ms-3">Lorem ipsum dolor sit amet</li>
-                  <li class="ms-3">Lorem ipsum dolor sit amet</li>
-                  <ul>
-                    <li class="ms-3">Lorem ipsum dolor sit amet</li>
-                    <li class="ms-3">Lorem ipsum dolor sit amet</li>
-                    <li class="ms-3">Lorem ipsum dolor sit amet</li>
-                  </ul>
-                  <li class="ms-3">Lorem ipsum dolor sit amet</li>
+                  <li class="ms-3">Created Updating the RoboRio and How to Create a Project</li>
+                  <li class="ms-3">First draft of the Java Basics</li>
+                </ul>
+                <h6 class="mt-3"> <span class="p-2"> Version 1.0.0</span> - 13/12/2024</h6>
+                <ul class="mt-3 mb-5">
+                  <li class="ms-3">Cloned the project</li>
                 </ul>
               </div>
-              <!--end col-->
             </div>
-            <!--end row-->
           </div>
         </div>
         <div class="modal-footer">
