@@ -214,9 +214,82 @@
           </section>
           <section class="docs-section" id="item-1-4">
             <h2 class="section-heading">How to Install Libaries</h2>
+            <p>Now last season we used a total of 4 libaries (5 if you include WPILib), these were PathPlanner (for
+              automated paths), Phoenix6 (for CTRE products), REVLib (for REV products), and Photon Vision (for april
+              tags and other vision related stuff). Now installing libaries is made straight forward in FRC as all you
+              need is a link to the libary that ends in .json. Though finding this is usually the hardest part but I
+              will
+              provide you all with the path here. Keep in mind though you might need to tweak the url depending on year
+              or version</p>
+            <ol>
+              <li>PathPlanner <code>https://3015rangerrobotics.github.io/pathplannerlib/PathplannerLib.json</code></li>
+              <li>Phoenix6
+                <code>https://maven.ctr-electronics.com/release/com/ctre/phoenix6/latest/Phoenix6-frc2024-latest.json</code>
+              </li>
+              <li>PhotonVision
+                <ul>
+                  <li><code>https://github.com/PhotonVision/photonvision/releases</code></li>
+                  <li>
+                    <code>https://maven.photonvision.org/releases/org/photonvision/photonlib-json/1.0/photonlib-json-1.0.json</code>
+                  </li>
+                </ul>
+              </li>
+              <li>REVLib <code>https://software-metadata.revrobotics.com/REVLib-2025.json</code></li>
+            </ol>
+
+            <p>Now still trying using the json link for PhotonVision but if the build or deployment fails due to
+              PhotonVision uninstall it. Also I am using the code from 2024 in the background so don't work about that.
+            </p>
+            <p>First open up WPILib VS Studios and click the W icon in the top right, then search for manage vendordeps
+              and click on it.</p>
+            <img src="./Important Files/installing libaries/managing-venderdeps.png"
+              class="mb-3 img-fluid img-thumbnail" data-action="zoom">
+            <p>Now click on the Install new libaries (online)</p>
+            <img src="./Important Files/installing libaries/installing-libaries-online.png"
+              class="mb-3 img-fluid img-thumbnail" data-action="zoom">
+            <p>Now copy and paste one of the .json url up above and paste it into the text box and hit enter.</p>
+            <img src="./Important Files/installing libaries/paste-url.png" class="mb-3 img-fluid img-thumbnail"
+              data-action="zoom">
+            <p>Now you might of got an a message at the bottom that says libary already installed and if you get that
+              just ignore it for now and continue with installing the other libaries. If it goes well you should get
+              this pop up and click on no.
+            </p>
+            <img src="./Important Files/installing libaries/dont-build.png" class="mb-3 img-fluid img-thumbnail"
+              data-action="zoom">
+            <p>Now repeat these steps for the other 3 libaries.</p>
+            <p>Once finished open up you vendordeps folder and if you dont see 5 libaries installed install the missing.
+              If you do have all the libary hit the W button and search for Build Robot Code and click on it</p>
+            <img src="./Important Files/installing libaries/build-code.png" class="mb-3 img-fluid img-thumbnail"
+              data-action="zoom">
+            <p>If you get Build Succcess you done and you can and you can move on to the next task. Though there might
+              be some error and if you see one of those follow the corresponding steps.</p>
+
+            <p>If it says one of the version arent compatible with the version of WPILib the correct response would be
+              to install the the correct version of WPILib or to find the newest version of the libary that throwing the
+              error</p>
+            <img src="./Important Files/installing libaries/example-error.png" class="mb-3 img-fluid img-thumbnail"
+              data-action="zoom">
+            <p>If you error instead something like this Could not find PathplannerLib-java-2024.2.3.jar
+              (com.pathplanner.lib:PathplannerLib-java:2024.2.3). for me it PathPlanner for you it might be Phoenix6</p>
+            <img src="./Important Files/installing libaries/cant-find-libary.png" class="mb-3 img-fluid img-thumbnail"
+              data-action="zoom">
+            <p>The solution is normally to just uninstall the libaries and reinstall it then try building the code
+              again. You this by click the W again and go to manage vendordeps again but instead click on manage current
+              libaries</p>
+            <img src="./Important Files/installing libaries/managing-the-problem-libary.png"
+              class="mb-3 img-fluid img-thumbnail" data-action="zoom">
+            <p>Now select the libary that is giving you the error then click okay and it will uninstall that libary.</p>
+            <img src="./Important Files/installing libaries/uninstall-libary.png" class="mb-3 img-fluid img-thumbnail"
+              data-action="zoom">
+            <p>Now repeat the step for that libary and see if it solves the issue if you still get an error go ask for
+              help.</p>
           </section>
           <section class="docs-section" id="item-1-5">
             <h2 class="section-heading">How to Deploy Code</h2>
+            <p>This part is really easy first connect to the robot via wifi and they locate the W button and search for
+              the deploy code and press deploy robot code</p>
+            <img src="./Important Files/deploying-code.png" class="mb-3 img-fluid img-thumbnail"
+              data-action="zoom">
           </section>
         </article>
 
