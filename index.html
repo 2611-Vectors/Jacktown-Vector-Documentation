@@ -101,7 +101,12 @@
                 <a class="nav-link scrollto" href="#item-2-4">Classes</a>
               </li>
             </ul>
-            <a class="nav-link scrollto" href="#section-3">Programming Roadmap</a>
+            <a class="nav-link scrollto" href="#section-3">0 to Swerve</a>
+            <ul class="nav flex-column mt-2 lvl2">
+              <li class="nav-item">
+                <a class="nav-link scrollto" href="#item-3-1">Double checking Electrical</a>
+              </li>
+            </ul>
           </li>
         </ul>
       </nav>
@@ -218,8 +223,8 @@
               automated paths), Phoenix6 (for CTRE products), REVLib (for REV products), and Photon Vision (for april
               tags and other vision related stuff). Now installing libaries is made straight forward in FRC as all you
               need is a link to the libary that ends in .json. Though finding this is usually the hardest part but I
-              will
-              provide you all with the path here. Keep in mind though you might need to tweak the url depending on year
+              will provide you all with the path here. Keep in mind though you might need to tweak the url depending on
+              year
               or version</p>
             <ol>
               <li>PathPlanner <code>https://3015rangerrobotics.github.io/pathplannerlib/PathplannerLib.json</code></li>
@@ -264,8 +269,8 @@
             <p>If you get Build Succcess you done and you can and you can move on to the next task. Though there might
               be some error and if you see one of those follow the corresponding steps.</p>
 
-            <p>If it says one of the version arent compatible with the version of WPILib the correct response would be
-              to install the the correct version of WPILib or to find the newest version of the libary that throwing the
+            <p>If it says one of the versions arent compatible with the version of WPILib
+              install the the correct version of WPILib or to find the newest version of the libary thats throwing the
               error</p>
             <img src="./Important Files/installing libaries/example-error.png" class="mb-3 img-fluid img-thumbnail"
               data-action="zoom">
@@ -288,8 +293,7 @@
             <h2 class="section-heading">How to Deploy Code</h2>
             <p>This part is really easy first connect to the robot via wifi and they locate the W button and search for
               the deploy code and press deploy robot code</p>
-            <img src="./Important Files/deploying-code.png" class="mb-3 img-fluid img-thumbnail"
-              data-action="zoom">
+            <img src="./Important Files/deploying-code.png" class="mb-3 img-fluid img-thumbnail" data-action="zoom">
           </section>
         </article>
 
@@ -1160,8 +1164,426 @@ class Car extends Vehicle {
         </article>
 
         <article class="docs-article" id="section-3">
+          <header class="docs-header">
+            <h1 class="docs-heading">0 to Swerve</h1>
+            <section class="docs-intro">
+              <p>
+                This section will go just as the name suggest take you from just the blank chassis the electrical team
+                and build team give you and get code on the robot and the robot driving ready to add on to.
+              </p>
+            </section>
 
+            <h5>This section will go over:</h5>
+            <ol>
+              <li>Double checking Electrical</li>
+            </ol>
 
+          </header>
+          <section class="docs-section" id="item-3-1">
+            <h2 class="section-heading">Double checking Electrical</h2>
+            <p>When looking at the different devices you will see different colors blinking and these are called status
+              lights and they give visual feedback to us to tell us if anything is wrong with the hardware. This
+              information I got from there website if you want to know where I got this information or if want to learn
+              more <a
+                href="https://v6.docs.ctr-electronics.com/en/stable/docs/hardware-reference/talonfx/">https://v6.docs.ctr-electronics.com/en/stable/docs/hardware-reference/talonfx/</a>
+            </p>
+            <p style="padding-top: 20px;"></p>
+            <h3>Motors</h3>
+            <h4>Status Light Reference</h4>
+            <img src="./Important Files/status lights/talonfx-status-led-location.webp"
+              class="mb-3 img-fluid img-thumbnail" data-action="zoom">
+            <div class="table-responsive my-4">
+              <table class="table table-bordered">
+                <tbody>
+                  <tr>
+                    <th colspan="4" style="text-align: center; vertical-align: middle;">Blink Codes</th>
+                  </tr>
+                  <tr>
+                    <th colspan="4" style="text-align: center; vertical-align: middle;">Disabled Codes</th>
+                  </tr>
+                  <tr>
+                    <th>Animation (Click to play)</th>
+                    <th style="text-align: center; vertical-align: middle;">LED State</th>
+                    <th style="text-align: center; vertical-align: middle;">Cause</th>
+                    <th style="text-align: center; vertical-align: middle;">Possible Fix</th>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="ledGroup" blink="true">
+                        <div class="led" ontime="0" offtime="0" oncolor="black" offcolor="black"
+                          style="background: black;"></div>
+                        <div class="led" ontime="0" offtime="0" oncolor="black" offcolor="black"
+                          style="background: black;"></div>
+                      </div>
+                    </td>
+                    <td>LEDs Off</td>
+                    <td>No Power</td>
+                    <td>Provide 12V to Red/Black leads.</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="ledGroup" blink="true">
+                        <div class="led" ontime="300" offtime="300" oncolor="red" offcolor="black"
+                          style="background: black;"></div>
+                        <div class="led" ontime="300" offtime="300" oncolor="black" offcolor="red"
+                          style="background: red;"></div>
+                      </div>
+                    </td>
+                    <td>Blinking Alternating Red</td>
+                    <td>Talon FX does not have a valid CAN/PWM signal.</td>
+                    <td>Ensure good connections between CANH and CANL (Yellow and Green) &amp; robot controller is on.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="ledGroup" blink="false">
+                        <div class="led" ontime="300" offtime="300" oncolor="orange" offcolor="black"></div>
+                        <div class="led" ontime="300" offtime="300" oncolor="black" offcolor="orange"></div>
+                      </div>
+                    </td>
+                    <td>Blinking Alternating Orange</td>
+                    <td>TalonFX detects CAN but does not see Phoenix running on the robot controller.</td>
+                    <td>If Phoenix is running on the robot controller, ensure good connection between the controller and
+                      this device. Otherwise, deploy a robot program that uses Phoenix.</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="ledGroup" blink="false">
+                        <div class="led" ontime="300" offtime="300" oncolor="orange" offcolor="black"></div>
+                        <div class="led" ontime="300" offtime="300" oncolor="orange" offcolor="black"></div>
+                      </div>
+                    </td>
+                    <td>Blinking Simultaneous Orange</td>
+                    <td>Talon FX has valid CAN signal and is disabled. Phoenix is running in robot controller <b>and</b>
+                      Talon FX has good CAN connection to robot controller.</td>
+                    <td>If robot is enabled, ensure a control request is being sent to the Talon FX.</td>
+                  </tr>
+                  <tr>
+                    <th colspan="4" style="text-align: center; vertical-align: middle;">Enabled Codes</th>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="ledGroup" blink="false">
+                        <div class="led" ontime="0" offtime="0" oncolor="orange" offcolor="orange"></div>
+                        <div class="led" ontime="0" offtime="0" oncolor="orange" offcolor="orange"></div>
+                      </div>
+                    </td>
+                    <td>Both Solid Orange</td>
+                    <td colspan="2">Talon FX enabled with neutral output.</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="ledGroup" blink="false">
+                        <div class="led" ontime="300" offtime="300" oncolor="red" offcolor="black"></div>
+                        <div class="led" ontime="300" offtime="300" oncolor="red" offcolor="black"></div>
+                      </div>
+                    </td>
+                    <td>Blinking Simultaneous Red</td>
+                    <td colspan="2">Talon FX driving in reverse. Rate of blink corresponds to duty cycle applied.</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="ledGroup" blink="false">
+                        <div class="led" ontime="300" offtime="300" oncolor="green" offcolor="black"></div>
+                        <div class="led" ontime="300" offtime="300" oncolor="green" offcolor="black"></div>
+                      </div>
+                    </td>
+                    <td>Blinking Simultaneous Green</td>
+                    <td colspan="2">Talon FX driving forward. Rate of blink corresponds to duty cycle applied.</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="ledGroup" blink="false">
+                        <div class="led" ontime="100" offtime="400" oncolor="red" offcolor="black"></div>
+                        <div class="led" ontime="400" offtime="100" oncolor="black" offcolor="red"></div>
+                      </div>
+                    </td>
+                    <td>Offset Alternating Red/Off</td>
+                    <td colspan="2">Talon FX limited (hard or soft limit). Direction of offset determines
+                      forward/reverse limit.</td>
+                  </tr>
+                  <tr>
+                    <th colspan="4" style="text-align: center; vertical-align: middle;">Special Codes</th>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="ledGroup" blink="false">
+                        <div class="led" ontime="400" offtime="100" oncolor="black" offcolor="orange"></div>
+                        <div class="led" ontime="100" offtime="400" oncolor="orange" offcolor="black"></div>
+                      </div>
+                    </td>
+                    <td>Offset Orange/Off</td>
+                    <td>Talon FX in thermal cutoff.</td>
+                    <td>Allow Talon FX to cool. Consider configuring Stator Current Limits to reduce heat generation.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="ledGroup" blink="false">
+                        <div class="led" ontime="300" offtime="300" oncolor="red" offcolor="green"></div>
+                        <div class="led" ontime="300" offtime="300" oncolor="green" offcolor="red"></div>
+                      </div>
+                    </td>
+                    <td>Alternate Red/Green</td>
+                    <td>Talon FX driven with Pro-only command while unlicensed.</td>
+                    <td>Use non-Pro-only command, or license device for Pro.</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="ledGroup" blink="false">
+                        <div class="led" ontime="300" offtime="300" oncolor="red" offcolor="orange"></div>
+                        <div class="led" ontime="300" offtime="300" oncolor="orange" offcolor="red"></div>
+                      </div>
+                    </td>
+                    <td>Alternate Red/Orange</td>
+                    <td>Damaged Hardware.</td>
+                    <td>Contact CTRE.</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="ledGroup" blink="false">
+                        <div class="led" ontime="0" offtime="0" oncolor="black" offcolor="black"></div>
+                        <div class="led" ontime="300" offtime="300" oncolor="green" offcolor="orange"></div>
+                      </div>
+                    </td>
+                    <td>Single LED alternates Green/Orange</td>
+                    <td>Talon FX in bootloader.</td>
+                    <td>Field-upgrade device in Tuner X.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h3>Pigeon 2.0</h3>
+            <h4>Status Light Reference</h4>
+            <img src="./Important Files/status lights/pigeon2-status-led-location.webp"
+              class="mb-3 img-fluid img-thumbnail" data-action="zoom">
+            <div class="table-responsive my-4">
+              <table class="table table-bordered">
+                <tbody>
+                  <tr>
+                    <th colspan="4" style="text-align: center; vertical-align: middle;">Blink Codes</th>
+                  </tr>
+                  <tr>
+                    <th>Animation (Click to play)</th>
+                    <th style="text-align: center; vertical-align: middle;">LED State</th>
+                    <th style="text-align: center; vertical-align: middle;">Cause</th>
+                    <th style="text-align: center; vertical-align: middle;">Possible Fix</th>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="ledGroup" blink="false">
+                        <div class="led" ontime="0" offtime="0" oncolor="black" offcolor="black"></div>
+                        <div class="led" ontime="0" offtime="0" oncolor="black" offcolor="black"></div>
+                      </div>
+                    </td>
+                    <td>LEDs Off</td>
+                    <td>No Power</td>
+                    <td>Provide 12V to Red/Black leads.</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="ledGroup" blink="false">
+                        <div class="led" ontime="300" offtime="300" oncolor="red" offcolor="black"></div>
+                        <div class="led" ontime="300" offtime="300" oncolor="black" offcolor="red"></div>
+                      </div>
+                    </td>
+                    <td>Blinking Alternating Red</td>
+                    <td>Pigeon 2 does not have valid CAN.</td>
+                    <td>Ensure good connections between CANH and CANL (Yellow and Green) &amp; robot controller is on.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="ledGroup" blink="false">
+                        <div class="led" ontime="300" offtime="300" oncolor="orange" offcolor="black"></div>
+                        <div class="led" ontime="300" offtime="300" oncolor="black" offcolor="orange"></div>
+                      </div>
+                    </td>
+                    <td>Blinking Alternating Orange</td>
+                    <td>Pigeon 2 detects CAN but does not see Phoenix running on the robot controller.</td>
+                    <td>If Phoenix is running on the robot controller, ensure good connection between the controller and
+                      this device. Otherwise, deploy a robot program that uses Phoenix.</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="ledGroup" blink="false">
+                        <div class="led" ontime="300" offtime="300" oncolor="orange" offcolor="black"></div>
+                        <div class="led" ontime="300" offtime="300" oncolor="orange" offcolor="black"></div>
+                      </div>
+                    </td>
+                    <td>Blinking Simultaneous Orange</td>
+                    <td colspan="2">Pigeon 2 detects CAN and sees the robot is disabled. Phoenix is running in robot
+                      controller <b>and</b> Pigeon 2 has good CAN connection to robot controller.</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="ledGroup" blink="false">
+                        <div class="led" ontime="300" offtime="300" oncolor="green" offcolor="black"></div>
+                        <div class="led" ontime="300" offtime="300" oncolor="black" offcolor="green"></div>
+                      </div>
+                    </td>
+                    <td>Blinking Alternating Green</td>
+                    <td colspan="2">Pigeon 2 detects CAN and sees the robot is enabled.</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="ledGroup" blink="false">
+                        <div class="led" ontime="300" offtime="300" oncolor="red" offcolor="orange"></div>
+                        <div class="led" ontime="300" offtime="300" oncolor="orange" offcolor="red"></div>
+                      </div>
+                    </td>
+                    <td>Alternate Red/Orange</td>
+                    <td>Damaged Hardware.</td>
+                    <td>Contact CTRE.</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="ledGroup" blink="false">
+                        <div class="led" ontime="0" offtime="0" oncolor="black" offcolor="black"></div>
+                        <div class="led" ontime="300" offtime="300" oncolor="green" offcolor="orange"></div>
+                      </div>
+                    </td>
+                    <td>Single LED alternates Green/Orange</td>
+                    <td>Pigeon 2 in bootloader.</td>
+                    <td>Field-upgrade device in Tuner X.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h3>CANcoder</h3>
+            <div class="table-responsive my-4">
+              <table class="table table-bordered">
+                <tbody>
+                  <tr>
+                    <th colspan="4" style="text-align: center; vertical-align: middle;">Blink Codes</th>
+                  </tr>
+                  <tr>
+                    <th>Animation (Click to play)</th>
+                    <th style="text-align: center; vertical-align: middle;">LED State</th>
+                    <th style="text-align: center; vertical-align: middle;">Cause</th>
+                    <th style="text-align: center; vertical-align: middle;">Possible Fix</th>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="ledGroup2" blink="false">
+                        <div class="led" ontime="0" offtime="0" oncolor="black" offcolor="black"></div>
+                      </div>
+                    </td>
+                    <td>LED Off</td>
+                    <td>No Power</td>
+                    <td>Provide 12V to Red/Black leads.</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="ledGroup2" blink="true">
+                        <div class="led" ontime="300" offtime="300" oncolor="red" offcolor="black"
+                          style="background: black;"></div>
+                      </div>
+                    </td>
+                    <td>Slow Bright Red</td>
+                    <td>CANcoder does not have valid CAN.</td>
+                    <td>Ensure good connections between CANH and CANL (Yellow and Green) &amp; robot controller is on.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="ledGroup2" blink="true">
+                        <div class="led" ontime="300" offtime="20" oncolor="darkred" offcolor="black"
+                          style="background: darkred;"></div>
+                      </div>
+                    </td>
+                    <td>Rapid Dim Red</td>
+                    <td>CAN bus never detected since boot, CANcoder now reporting strength of magnet. Magnet is out of
+                      range (&lt;25 mT or &gt; 135 mT)</td>
+                    <td>Ensure good connections between CANH and CANL (Yellow and Green) &amp; robot controller is on.
+                      Additionally, ensure the magnet's center axis is aligned with the defined center of the CANcoder
+                      housing and the magnet is in range of the CANcoder. See Section 2.1 of the Hardware User Manual.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="ledGroup2" blink="true">
+                        <div class="led" ontime="300" offtime="20" oncolor="#a67000" offcolor="black"
+                          style="background: rgb(166, 112, 0);"></div>
+                      </div>
+                    </td>
+                    <td>Rapid Dim Orange</td>
+                    <td>CAN bus never detected since boot, CANcoder now reporting strength of magnet. Magnet is in range
+                      with slightly reduced accuracy (25-45 mT or 75-135 mT).</td>
+                    <td>Ensure good connections between CANH and CANL (Yellow and Green) &amp; robot controller is on.
+                      Additionally, ensure the magnet's center axis is aligned with the defined center of the CANcoder
+                      housing and the CANcoder is not too close or too far from the magnet. See Section 2.1 of the
+                      Hardware User Manual.</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="ledGroup2" blink="true">
+                        <div class="led" ontime="300" offtime="20" oncolor="darkgreen" offcolor="black"
+                          style="background: black;"></div>
+                      </div>
+                    </td>
+                    <td>Rapid Dim Green</td>
+                    <td>CAN bus never detected since boot, CANcoder now reporting strength of magnet. Magnet is in
+                      range.</td>
+                    <td>Ensure good connections between CANH and CANL (Yellow and Green) &amp; robot controller is on.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="ledGroup2" blink="false">
+                        <div class="led" ontime="300" offtime="20" oncolor="red" offcolor="black"></div>
+                      </div>
+                    </td>
+                    <td>Rapid Bright Red</td>
+                    <td>CAN bus healthy. Magnet is out of range (&lt;25 mT or &gt; 135 mT)</td>
+                    <td>Ensure the magnet's center axis is aligned with the defined center of the CANcoder housing and
+                      the magnet is in range of the CANcoder. See Section 2.1 of the Hardware User Manual.</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="ledGroup2" blink="false">
+                        <div class="led" ontime="300" offtime="20" oncolor="orange" offcolor="black"></div>
+                      </div>
+                    </td>
+                    <td>Rapid Bright Orange</td>
+                    <td>CAN bus healthy. Magnet is in range with slightly reduced accuracy (25-45 mT or 75-135 mT).</td>
+                    <td>Ensure the magnet's center axis is aligned with the defined center of the CANcoder housing and
+                      the CANcoder is not too close or too far from the magnet. See Section 2.1 of the Hardware User
+                      Manual.</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="ledGroup2" blink="false">
+                        <div class="led" ontime="300" offtime="20" oncolor="green" offcolor="black"></div>
+                      </div>
+                    </td>
+                    <td>Rapid Bright Green</td>
+                    <td colspan="2">CAN bus healthy. Magnet is in range.</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="ledGroup2" blink="false">
+                        <div class="led" ontime="300" offtime="300" oncolor="red" offcolor="orange"></div>
+                      </div>
+                    </td>
+                    <td>Alternate Red/Orange</td>
+                    <td>Damaged Hardware.</td>
+                    <td>Contact CTRE.</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="ledGroup2" blink="false">
+                        <div class="led" ontime="300" offtime="300" oncolor="orange" offcolor="green"></div>
+                      </div>
+                    </td>
+                    <td>Alternate Orange/Green</td>
+                    <td>CANcoder in bootloader.</td>
+                    <td>Field-upgrade device in Tuner X.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
 
         </article>
 
@@ -1196,6 +1618,10 @@ class Car extends Vehicle {
           <div class="container">
             <div class="row justify-content-center">
               <div class="col-12">
+                <h6 class="mt-3"> <span class="p-2"> Version 1.1.1</span> - 1/6/2024</h6>
+                <ul class="mt-3 mb-5">
+                  <li class="ms-3">Added Status Lights for the different CTRE devices</li>
+                </ul>
                 <h6 class="mt-3"> <span class="p-2"> Version 1.1.0</span> - 17/12/2024</h6>
                 <ul class="mt-3 mb-5">
                   <li class="ms-3">Created Updating the RoboRio and How to Create a Project</li>
@@ -1225,6 +1651,7 @@ class Car extends Vehicle {
   <script src="./Important Files/hl.js"></script>
   <!-- Shop js -->
   <script src="./Important Files/shop.js"></script>
+  <script src="./Important Files/blinkingCode.js"></script>
 
 
 </body>
