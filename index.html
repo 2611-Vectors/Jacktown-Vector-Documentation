@@ -109,6 +109,12 @@
               <li class="nav-item">
                 <a class="nav-link scrollto" href="#item-3-2">Updating the Hardware</a>
               </li>
+              <li class="nav-item">
+                <a class="nav-link scrollto" href="#item-3-3">Generate Tuner Constants</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link scrollto" href="#item-3-4">Getting AdvantageKit Working</a>
+              </li>
             </ul>
           </li>
         </ul>
@@ -305,12 +311,12 @@
         <article class="docs-article" id="section-2">
           <header class="docs-header">
             <h1 class="docs-heading">Java Basics</h1>
-            <p>This section will go over the basic of java syntax and the stuff you can do with it at a surface level.
-              This will no be going into to much detail of robot specific stuff like subsystem, commands and the
+            <p>This section will go over the basics of java syntax and the stuff you can do with it at a surface level.
+              This will not be going into to much detail of robot specific stuff like subsystem, commands and the
               different api we used but is instead meant to help you get a better intuitive grasp of the language. There
               is also some stuff left out for the sake of simplicity. But I encourage you to do research on lamdas,
               method
-              reference, interfaces, and OOP to name a few. I also took heavy inspiration from <a
+              reference, interfaces, Suppliers, and OOP to name a few. I also took heavy inspiration from <a
                 href="https://www.w3schools.com/java/default.asp">w3schools</a> so I encourage you after reading this to
               go over there to learn more</p>
             <h5>This section will go over:</h5>
@@ -325,8 +331,7 @@
             <h2 class="section-heading">Variables</h2>
             <p>Variables are the computers way of storaging information and act as a container for different types of
               information. In Java you much declare a variable with a specific data type and there two way of asigning
-              values
-              variables.
+              values to variables first is primitives.
             </p>
             <h5>Primitives:</h5>
             <div class="table-responsive my-4">
@@ -409,8 +414,8 @@
             <p style="padding-top: 20px;"></p>
             <h3>Using Variables</h3>
             <p>Now just defining and declaring variables wont actually do anything. There are two ways of using
-              variables for the two types for objects and classes it is more complicated and will be covered more in the
-              <a href="#item-2-4">classes</a> section. For primitives though ts simple and we'll start with
+              variables depending on if it a primitive or a object for objects and classes it is more complicated and will be covered more in the
+              <a href="#item-2-4">classes</a> section. For primitives though its simple and we'll start with
               numbers.
             </p>
             <p>Now just like in Math there are the four main operators addition(+), subtraction(-), multiplication(*),
@@ -578,7 +583,7 @@
             </div>
 
             <h4><code>if</code> statement:</h4>
-            <p>As mention previous an if statement is when you only one some code to one once if and only if some
+            <p>As mention previously an if statement is when you only want some code to one once if and only if some
               condition/boolean is true.</p>
             <p>The syntax for this looks like this</p>
             <pre class="shadow-lg rounded"><code>if (condition) {&#10;&emsp;//MyCode&#10;}</code></pre>
@@ -595,7 +600,7 @@
             <pre class="shadow-lg rounded"><code>if (armAngle &lt; 90) {&#10;&emsp;armAngle++&#10;}</code></pre>
             <p style="padding-top: 20px;"></p>
             <p>Now this code works and would be a working solution but in coding there is unusually more than one way of
-              doing something another solution would be. The issue with the previous examples is what if the armAngle
+              doing something. The issue with the previous examples is what if the armAngle
               was already above 90 if that happened it wouldn't solve our issues. So instead we can do</p>
             <pre
               class="shadow-lg rounded"><code>armAngle++&#10;if (armAngle > 90) {&#10;&emsp;armAngle = 90;&#10;}</code></pre>
@@ -610,8 +615,8 @@
 
 
             <h4><code>else</code> statement:</h4>
-            <p>This is is used when you have an either or scenario where you want one block of code to one when
-              something is true the other when it false. Here is the syntax</p>
+            <p>This is is used when you have an either or scenario where you want one block of code to run when
+              something is true the other when its false. Here is the syntax</p>
 
             <pre
               class="shadow-lg rounded"><code>if (condition) {&#10;&emsp;//WhenTrueCode&#10;} else {&#10;&emsp;//WhenFalseCode&#10;}</code></pre>
@@ -625,14 +630,14 @@
               is wheelRPM and lets say when I press the button it set the wheelRPM to 3000 and then when I release it
               sets it to zero</p>
             <pre
-              class="shadow-lg rounded"><code>if (buttonA) {&#10;&emsp;wheelRPM = 3000&#10;} else {&#10;&emsp;wheelRPM&#10;}</code></pre>
+              class="shadow-lg rounded"><code>if (buttonA) {&#10;&emsp;wheelRPM = 3000&#10;} else {&#10;&emsp;wheelRPM = 0;&#10;}</code></pre>
             <p style="padding-top: 20px;"></p>
 
 
 
             <h4><code>if else</code> statement:</h4>
-            <p>This combines what we did in the previous two section and allows you to change multiple if statement
-              check each one one after another and if one of them is true is top the change. Here is the syntax</p>
+            <p>This combines what we did in the previous two sections and allows you to chain multiple if statement
+              checks each one, one after another and if one of them is true it stop checking the other conditions. Here is the syntax</p>
             <pre
               class="shadow-lg rounded"><code>if (condition1) {&#10;&emsp;// block of code to be executed if condition1 is true&#10;} else if (condition2) {&#10;&emsp;// block of code to be executed if the condition1 is false and condition2 is true&#10;} else {&#10;&emsp;// block of code to be executed if the condition1 is false and condition2 is false&#10;}</code></pre>
             <p style="padding-top: 20px;"></p>
@@ -706,8 +711,8 @@ while (condition);</code></pre>
 
 
             <h4><code>for</code> loop</h4>
-            <p>Now this solves all the issues of the <code>while</code> loop as for loop only loop through code for a
-              certain amount of time and it great for looping through arrays (will add section for later) and for
+            <p>Now this solves all the issues of the <code>while</code> loop as a <code>for</code> loop only loops through code for a
+              certain amount of time and its great for looping through arrays (will add section for later) and for
               running a code for only a set amount of times. Here the syntax</p>
             <pre class="shadow-lg rounded"><code>for (statement 1; statement 2; statement 3) {
   // code block to be executed
@@ -723,11 +728,11 @@ while (condition);</code></pre>
   System.out.println(i);
 }</code></pre>
             <p style="padding-top: 20px;"></p>
-            <p>I am that the loop section of conditionals was a little short and was due to the fact that we don't use
+            <p>I admit that the loop section of conditionals was a little short and that was due to the fact that we don't use
               loops that often in robotics but they are usefull when programming other things so I encourage you to
               learn more if your interested.</p>
             <p>Now I know this unit was a lot with the amount of material that was covered and while the next one won't
-              be as longs it will be more complicated and the units will get more difficult so I encourage you to re
+              be as long it will be more complicated and the units will get more difficult so I encourage you to re
               read these two units and get a good understand before moving ahead </p>
           </section>
 
@@ -1180,6 +1185,8 @@ class Car extends Vehicle {
             <ol>
               <li>Double checking Electrical</li>
               <li>Updating the Hardware</li>
+              <li>Generate Tuner Constants</li>
+              <li>Getting AdvantageKit Working</li>
             </ol>
 
           </header>
@@ -1684,8 +1691,7 @@ class Car extends Vehicle {
               <div class="content">
                 <h4 class="callout-title">Warning</h4>
                 <p>Now your decives should either be Yellow or Green and sometimes Purple if you get something else go
-                  seek a
-                  mentors help.
+                  seek mentor help.
                 </p>
               </div>
             </div>
@@ -1701,7 +1707,41 @@ class Car extends Vehicle {
               the most recent version in the drop down</p>
             <img src="./Important Files/TunerX Updating/batch-upgrade-firmware-selection1.webp"
               class="mb-3 img-fluid img-thumbnail" data-action="zoom">
-            <p>Now if all you decives are green you can now move on (You may need to license things if they are new devices)</p>
+            <p>Now if all you decives are green you can now move on (You may need to license things if they are new
+              devices)</p>
+          </section>
+          <section class="docs-section" id="item-3-3">
+            <h2 class="section-heading">Generate Tuner Constants</h2>
+            <p>Now currently documentation is out dated is some area but here is the link to the website
+              <a
+                href="https://v6.docs.ctr-electronics.com/en/2024/docs/tuner/tuner-swerve/index.html">https://v6.docs.ctr-electronics.com/en/2024/docs/tuner/tuner-swerve/index.html</a>
+              But it is pretty similiar. Also Wheel Radius is 2.0 Inches our FL to FR distance is 20.5 FL to BL is 20.5.
+              Module type is Mk4i and were using the L6. These could change but hopefule this helps. Also at the very
+              end your will have the option to build project or Tuner Constants only choose Tuner Constants only
+            </p>
+            <div class="callout-block callout-block-danger me-1">
+              <div class="content">
+                <h4 class="callout-title">Danger</h4>
+                <p>Make sure you have the most up to date version of TunerX if you don't do this nothing is going to
+                  work. This is where the version is located after opening the app in this example it for 2024 but for
+                  you it should be 2025 or whatever the current year is
+                </p>
+                <img src="./Important Files/TunerX Updating/tunerX-version.png" class="mb-3 img-fluid img-thumbnail"
+                  data-action="zoom">
+              </div>
+            </div>
+          </section>
+          <section class="docs-section" id="item-3-4">
+            <h2 class="section-heading">Getting AdvantageKit Working</h2>
+            <p>First go to the page <a
+                href="https://github.com/Mechanical-Advantage/AdvantageKit/releases/">https://github.com/Mechanical-Advantage/AdvantageKit/releases/</a>
+              and look for the most recent version and then download the
+              AdvantageKit_TalonFXSwerveTemplate.zip
+            </p>
+            <img src="./Important Files/Creating Swerve Project/finding template.png"
+              class="mb-3 img-fluid img-thumbnail" data-action="zoom">
+            <p>Unzip the folder and then go to src/main/java/frc/robot/generated/TunerConstants.java and replace
+              this file with the values you got from TunerX</p>
           </section>
         </article>
 
@@ -1736,6 +1776,11 @@ class Car extends Vehicle {
           <div class="container">
             <div class="row justify-content-center">
               <div class="col-12">
+                <h6 class="mt-3"> <span class="p-2"> Version 1.2.0</span> - 1/15/2024</h6>
+                <ul class="mt-3 mb-5">
+                  <li class="ms-3">First draft of the 0 to Swerve is finished</li>
+                  <li class="ms-3">Fixed a lot of grammar issues</li>
+                </ul>
                 <h6 class="mt-3"> <span class="p-2"> Version 1.1.2</span> - 1/14/2024</h6>
                 <ul class="mt-3 mb-5">
                   <li class="ms-3">Added detailed explaination on updating the hardware</li>
