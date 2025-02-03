@@ -1795,7 +1795,7 @@ class Car extends Vehicle {
               class="mb-3 img-fluid img-thumbnail" data-action="zoom">
             <h4 style="color: black;">Q: I ran the Drive Wheel Radius Characterization and got a value greater than 2
               inches which makes no sense?</h4>
-            <p>If you get a small value like 2.01, it’s probably not a big concern. However, if you get a higher number
+            <p>A: If you get a small value like 2.01, it’s probably not a big concern. However, if you get a higher number
               like 2.1 or 2.2, that’s an issue. The solution we found was that both our FL to FR and FL to BL
               measurements were rounded to 20.5 when the actual value was 20.75. Additionally, our module used L2+ or L2
               16T for Tuner X, but we mistakenly used the normal L2, which does not have the same gear ratio.</p>
@@ -1806,16 +1806,16 @@ class Car extends Vehicle {
           <section class="docs-section" id="item-4-3">
             <h2 class="section-heading">Path Planner</h2>
             <h4 style="color: black;">Q: Why is the bot always lagging behind the target position?</h4>
-            <p>First, make sure you pull up AdvantageScope or the PathPlanner Telemetry tab to check if it’s an odometry
+            <p>A: First, make sure you pull up AdvantageScope or the PathPlanner Telemetry tab to check if it’s an odometry
               issue. Then, double-check that your drive PID is finely tuned, as running an untuned bot for a path can
               cause this expected behavior. This should almost completely eliminate your issues, but if it’s still off
               by an inch or so, try tuning the PathPlanner PID. However, this should be the final thing you adjust.</p>
           </section>
           <section class="docs-section" id="item-4-4">
             <h2 class="section-heading">Motors</h2>
-            <h4 style="color: black;">Q: I wrote simple code to move motor but it moves than drops even though I am keep
+            <h4 style="color: black;">Q: I wrote simple code to move a motor but it moves than drops even though I keep
               holding the joystick?</h4>
-            <p>This is a relatively common issue, and it has wasted a lot of time thinking it was a code issue when, in
+            <p>A: This is a relatively common issue, and it has wasted a lot of time thinking it was a code issue when, in
               reality, it was just loose wiring. First, double-check all the CAN connections to see if any are loose. If
               all your wiring is secure but the issue persists, check your Anderson connectors. These can be deceiving
               because they may look secure, and even when you tug on them, they still appear fine. However, when you
