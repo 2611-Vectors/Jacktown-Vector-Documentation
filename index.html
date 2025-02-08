@@ -133,6 +133,9 @@
               <li class="nav-item">
                 <a class="nav-link scrollto" href="#item-4-5">General Mechanisms</a>
               </li>
+              <li class="nav-item">
+                <a class="nav-link scrollto" href="#item-4-6">Code Errors</a>
+              </li>
             </ul>
           </li>
         </ul>
@@ -1795,18 +1798,35 @@ class Car extends Vehicle {
               class="mb-3 img-fluid img-thumbnail" data-action="zoom">
             <h4 style="color: black;">Q: I ran the Drive Wheel Radius Characterization and got a value greater than 2
               inches which makes no sense?</h4>
-            <p>A: If you get a small value like 2.01, it’s probably not a big concern. However, if you get a higher number
+            <p>A: If you get a small value like 2.01, it’s probably not a big concern. However, if you get a higher
+              number
               like 2.1 or 2.2, that’s an issue. The solution we found was that both our FL to FR and FL to BL
               measurements were rounded to 20.5 when the actual value was 20.75. Additionally, our module used L2+ or L2
               16T for Tuner X, but we mistakenly used the normal L2, which does not have the same gear ratio.</p>
+            <h4 style="color: black;">Q: I double-checked all the swerve values, and I am still getting a massive error,
+              but it is consistently off by the same amount?</h4>
+            <p>A: If you are using Colsons, this is a known issue and its due to the way they interact with the nap of
+              the carpet,
+              producing different errors. You can solve this by using vision or compensating for it in the code.
+            </p>
+
           </section>
           <section class="docs-section" id="item-4-2">
             <h2 class="section-heading">Vision</h2>
+            <h4 style="color: black;">Q: We just arrived at the competition, and the cameras are suddenly fuzzy, even
+              though the focus didn't change?</h4>
+            <p>A: This is a common occurrence with cameras if they sit in a cold truck overnight and are then brought
+              into a warm environment like a gym. This is due to condensation, where small water droplets affect the
+              camera's vision. The best plan is to wait a couple of hours for it to naturally clear. To speed up the
+              process, you can use a hair dryer, but be careful not to set it too high, as excessive heat can damage the
+              camera. According to best practices found online, sealing your camera in an airtight bag beforehand can
+              help prevent condensation. </p>
           </section>
           <section class="docs-section" id="item-4-3">
             <h2 class="section-heading">Path Planner</h2>
             <h4 style="color: black;">Q: Why is the bot always lagging behind the target position?</h4>
-            <p>A: First, make sure you pull up AdvantageScope or the PathPlanner Telemetry tab to check if it’s an odometry
+            <p>A: First, make sure you pull up AdvantageScope or the PathPlanner Telemetry tab to check if it’s an
+              odometry
               issue. Then, double-check that your drive PID is finely tuned, as running an untuned bot for a path can
               cause this expected behavior. This should almost completely eliminate your issues, but if it’s still off
               by an inch or so, try tuning the PathPlanner PID. However, this should be the final thing you adjust.</p>
@@ -1815,7 +1835,8 @@ class Car extends Vehicle {
             <h2 class="section-heading">Motors</h2>
             <h4 style="color: black;">Q: I wrote simple code to move a motor but it moves than drops even though I keep
               holding the joystick?</h4>
-            <p>A: This is a relatively common issue, and it has wasted a lot of time thinking it was a code issue when, in
+            <p>A: This is a relatively common issue, and it has wasted a lot of time thinking it was a code issue when,
+              in
               reality, it was just loose wiring. First, double-check all the CAN connections to see if any are loose. If
               all your wiring is secure but the issue persists, check your Anderson connectors. These can be deceiving
               because they may look secure, and even when you tug on them, they still appear fine. However, when you
@@ -1823,6 +1844,15 @@ class Car extends Vehicle {
           </section>
           <section class="docs-section" id="item-4-5">
             <h2 class="section-heading">General Mechanisms</h2>
+            <h4 style="color: black;">Q: How do I know what way the motor is going to spin when I give it a posive
+              value?</h4>
+            <p>A: By default Clockwise is the positive direction but be careful as if there is a gear connected than
+              positive will spin Counter Clockwise</p>
+
+          </section>
+          <section class="docs-section" id="item-4-6">
+            <h2 class="section-heading">Code Errors</h2>
+
           </section>
         </article>
 
@@ -1854,12 +1884,15 @@ class Car extends Vehicle {
           <div class="container">
             <div class="row justify-content-center">
               <div class="col-12">
+                <h6 class="mt-3"> <span class="p-2"> Version 1.2.1</span> - 2/7/2025</h6>
+                <ul class="mt-3 mb-5">
+                  <li class="ms-3">Created the Code Errors sub tab</li>
+                  <li class="ms-3">added more trouble shooting stuff</li>
+                </ul>
                 <h6 class="mt-3"> <span class="p-2"> Version 1.2.0</span> - 2/3/2025</h6>
-
-                <h6 class="mt-3"> <span class="p-2"> Version 1.3.0</span> - 1/15/2025</h6>
                 <ul class="mt-3 mb-5">
                   <li class="ms-3">Created the troubleshooting tab</li>
-                  <li class="ms-3">added a couple one I remember but there needs to be a lot more</li>
+                  <li class="ms-3">added a couple ones I remembered but there needs to be a lot more</li>
                 </ul>
                 <h6 class="mt-3"> <span class="p-2"> Version 1.1.2</span> - 1/14/2025</h6>
                 <ul class="mt-3 mb-5">
