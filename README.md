@@ -1,3 +1,6 @@
+Go to https://2611-vectors.github.io/Jacktown-Vector-Documentation/
+
+
 # doc-template
 Dev documentation template (one file)
 
